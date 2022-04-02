@@ -19,16 +19,15 @@ script:
   - docker build -t udagram-api-user-service ./udagram-api-user-service
   - docker build -t udagram-api-feed-service ./udagram-api-feed-service
   - docker build -t udagram-frontend ./udagram-frontend
-  - docker tag reverseproxy quanlm11/reverseproxy:v1
-  - docker tag udagram-api-user-service quanlm11/udagram-api-user-service:v1
-  - docker tag udagram-api-feed-service quanlm11/udagram-api-feed-service:v1
-  - docker tag udagram-frontend quanlm11/udagram-frontend:v1
+  - docker tag reverseproxy quanlm11/reverseproxy:v2
+  - docker tag udagram-api-user-service quanlm11/udagram-api-user-service:v2
+  - docker tag udagram-api-feed-service quanlm11/udagram-api-feed-service:v2
+  - docker tag udagram-frontend quanlm11/udagram-frontend:v
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push YOUR_DOCKER_HUB/simple-node
-  - docker push quanlm11/reverseproxy:v1
-  - docker push quanlm11/udagram-api-user-service:v1
-  - docker push quanlm11/udagram-api-feed-service:v1
-  - docker push quanlm11/udagram-frontend:v1
+  - docker push quanlm11/reverseproxy:v2
+  - docker push quanlm11/udagram-api-user-service:v2
+  - docker push quanlm11/udagram-api-feed-service:v2
+  - docker push quanlm11/udagram-frontend:v2
 
